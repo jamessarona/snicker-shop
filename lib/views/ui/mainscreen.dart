@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:online_shop/views/ui/product_by_cart.dart';
 import 'package:online_shop/views/ui/searchpage.dart';
 import 'package:provider/provider.dart';
 import '../../controllers/mainscreen_provider.dart';
@@ -13,7 +14,7 @@ class MainScreen extends StatelessWidget {
   List<Widget> pageList = const [
     HomePage(),
     SearchPage(),
-    HomePage(),
+    ProductByCart(),
     CartPage(),
     ProfilePage()
   ];
@@ -23,6 +24,7 @@ class MainScreen extends StatelessWidget {
     return Consumer<MainScreenNotifier>(
         builder: (context, mainScreenNotifier, child) {
       return Scaffold(
+        backgroundColor: const Color(0xFFE2E2E2),
         body: pageList[mainScreenNotifier.pageIndex],
         bottomNavigationBar: const BottomNav(),
       );
