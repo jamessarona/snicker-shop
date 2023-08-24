@@ -2,13 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:online_shop/views/shared/appstyle.dart';
 import 'package:online_shop/views/shared/new_shoes.dart';
 import 'package:online_shop/views/shared/product_card.dart';
+import 'package:online_shop/views/ui/product_by_cart.dart';
 
 import '../../models/sneaker_model.dart';
 
 class HomeWidget extends StatelessWidget {
+  final int tabIndex;
   const HomeWidget({
     super.key,
     required Future<List<Sneakers>> male,
+    required this.tabIndex,
   }) : _male = male;
 
   final Future<List<Sneakers>> _male;
@@ -60,21 +63,30 @@ class HomeWidget extends StatelessWidget {
                       FontWeight.bold,
                     ),
                   ),
-                  Row(
-                    children: [
-                      Text(
-                        'Show All',
-                        style: appstyle(
-                          18,
-                          Colors.black,
-                          FontWeight.w500,
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  ProductByCart(tabIndex: tabIndex)));
+                    },
+                    child: Row(
+                      children: [
+                        Text(
+                          'Show All',
+                          style: appstyle(
+                            18,
+                            Colors.black,
+                            FontWeight.w500,
+                          ),
                         ),
-                      ),
-                      const Icon(
-                        Icons.keyboard_double_arrow_right,
-                        size: 18,
-                      ),
-                    ],
+                        const Icon(
+                          Icons.keyboard_double_arrow_right,
+                          size: 18,
+                        ),
+                      ],
+                    ),
                   )
                 ],
               ),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:online_shop/views/ui/product_by_cart.dart';
 import 'package:online_shop/views/ui/searchpage.dart';
 import 'package:provider/provider.dart';
 import '../../controllers/mainscreen_provider.dart';
@@ -14,7 +13,7 @@ class MainScreen extends StatelessWidget {
   List<Widget> pageList = const [
     HomePage(),
     SearchPage(),
-    ProductByCart(),
+    HomePage(),
     CartPage(),
     ProfilePage()
   ];
